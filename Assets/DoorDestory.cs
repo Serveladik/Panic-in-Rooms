@@ -9,7 +9,7 @@ public class DoorDestory : MonoBehaviour
     {
         if(player.gameObject.tag == "Player")
         {
-            destroyedObstacles = Instantiate(destroyedObstacles,transform.position,Quaternion.identity);
+            destroyedObstacles = Instantiate(destroyedObstacles,this.transform.position,Quaternion.identity);
             Destroy(this.gameObject);
         }
     }

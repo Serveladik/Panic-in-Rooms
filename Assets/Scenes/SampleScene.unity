@@ -3755,7 +3755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eac6a244baa658041b9aff929ee3dbf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyedObstacles: {fileID: 198118250831228182, guid: f49a43f50379f4f4fa7a21feb0b66cdf,
+  destroyedObstacles: {fileID: 3783863303471931041, guid: 03017327facd2d243aee245f1478b97c,
     type: 3}
 --- !u!1 &1012492502
 GameObject:
@@ -4781,7 +4781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eac6a244baa658041b9aff929ee3dbf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyedObstacles: {fileID: 198118250831228182, guid: f49a43f50379f4f4fa7a21feb0b66cdf,
+  destroyedObstacles: {fileID: 3783863303471931041, guid: 03017327facd2d243aee245f1478b97c,
     type: 3}
 --- !u!1001 &1774481681
 PrefabInstance:
@@ -5237,11 +5237,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 284222211}
     m_Modifications:
-    - target: {fileID: 607926999942161363, guid: eee0d93a91fa89d48b46114a9f540942,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 1.31
-      objectReference: {fileID: 0}
     - target: {fileID: 607926999942161366, guid: eee0d93a91fa89d48b46114a9f540942,
         type: 3}
       propertyPath: m_Name

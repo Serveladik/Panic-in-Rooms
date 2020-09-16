@@ -10,7 +10,7 @@ public class BoxDestroy : MonoBehaviour
     {
         if(player.gameObject.tag == "Player")
         {
-            destroyedObstacles = (GameObject) Instantiate(destroyedObstacles,transform.position,Quaternion.identity) ;
+            destroyedObstacles = (GameObject) Instantiate(destroyedObstacles,this.transform.position,Quaternion.identity) ;
             Destroy(this.gameObject);
         }
     }
