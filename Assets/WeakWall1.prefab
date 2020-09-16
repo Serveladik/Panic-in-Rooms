@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 607926999942161361}
   - component: {fileID: 607926999942161360}
   - component: {fileID: 607926999942161363}
+  - component: {fileID: 2332257329834070339}
   m_Layer: 0
   m_Name: WeakWall1
   m_TagString: WeakWall
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 607926999942161366}
   m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 5.414, y: -0.17, z: 0.11}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3.0343, y: 0.16375178, z: 1.6865599}
   m_Children: []
   m_Father: {fileID: 0}
@@ -107,3 +108,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.9999999, y: 0.99999994, z: 0.9999998}
   m_Center: {x: 0.000000029802322, y: 0, z: 0}
+--- !u!114 &2332257329834070339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607926999942161366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eac6a244baa658041b9aff929ee3dbf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyedObstacles: {fileID: 198118250831228182, guid: f49a43f50379f4f4fa7a21feb0b66cdf,
+    type: 3}

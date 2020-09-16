@@ -7,7 +7,7 @@ public class CharControl : MonoBehaviour
     public Joystick joystick;
     private Rigidbody rb;
     public float sensitivityToSpeed;
-    [SerializeField]private GameObject destroyedObstacles;
+    //[SerializeField]private GameObject[] destroyedObstacles;
     public Animator playerAnim;
     [Header("Animator List")]
     public RuntimeAnimatorController[] animatorOverride;
@@ -30,7 +30,7 @@ public class CharControl : MonoBehaviour
     {
         
         rb.velocity = new Vector3 (joystick.Horizontal * sensitivityToSpeed/3,rb.velocity.y,joystick.Vertical * sensitivityToSpeed/3);
-        Debug.Log(rb.velocity.magnitude);
+        //Debug.Log(rb.velocity.magnitude);
         //Look at movement vector
         if(Input.touchCount>=1)
         {
@@ -65,12 +65,5 @@ public class CharControl : MonoBehaviour
         
     }
 
-    void OnTriggerEnter(Collider player)
-    {
-        if(player.gameObject.tag == "WeakWall")
-        {
-            destroyedObstacles = Instantiate(destroyedObstacles,player.transform.position,Quaternion.identity) as GameObject;
-            player.gameObject.SetActive(false);
-        }
-    }
+   
 }
