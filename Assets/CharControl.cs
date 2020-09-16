@@ -7,7 +7,10 @@ public class CharControl : MonoBehaviour
     public Joystick joystick;
     private Rigidbody rb;
     public float sensitivityToSpeed;
-    private Quaternion playerRotation;
+    [SerializeField]private GameObject destroyedObstacles;
+    public Animator playerAnim;
+    [Header("Animator List")]
+    public RuntimeAnimatorController[] animatorOverride;
 
     void Start()
     {
@@ -16,7 +19,6 @@ public class CharControl : MonoBehaviour
             joystick=FindObjectOfType<Joystick>();
         }
         rb = GetComponent<Rigidbody>();
-        playerRotation = transform.rotation;
     }
 
     // Update is called once per frame
@@ -26,21 +28,43 @@ public class CharControl : MonoBehaviour
     }
     void PlayerControl()
     {
+        
         rb.velocity = new Vector3 (joystick.Horizontal * sensitivityToSpeed/3,rb.velocity.y,joystick.Vertical * sensitivityToSpeed/3);
+        Debug.Log(rb.velocity.magnitude);
         //Look at movement vector
         if(Input.touchCount>=1)
         {
-            playerRotation = Quaternion.LookRotation(rb.velocity);
-            Debug.Log("ROT");
-        }
-        else
+            transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(rb.velocity),0.15f);
+        } 
+        AnimatorStates();
+    }
+
+    void AnimatorStates()
+    {
+        
+        if(rb.velocity.magnitude<=0f)
         {
-            transform.rotation = playerRotation;
+            playerAnim.runtimeAnimatorController = animatorOverride[0] as RuntimeAnimatorController;
+        }
+        
+        if(rb.velocity.magnitude>=0.5f && rb.velocity.magnitude<=2.5f)
+        {
+            playerAnim.runtimeAnimatorController = animatorOverride[1] as RuntimeAnimatorController;
+        }
+        
+        if(rb.velocity.magnitude>2.5f)
+        {
+            playerAnim.runtimeAnimatorController = animatorOverride[2] as RuntimeAnimatorController;
         }
         
     }
-    void PlayerRotation()
-    {
 
+    void OnTriggerEnter(Collider player)
+    {
+        if(player.gameObject.tag == "WeakWall")
+        {
+            destroyedObstacles = Instantiate(destroyedObstacles,player.transform.position,Quaternion.identity) as GameObject;
+            player.gameObject.SetActive(false);
+        }
     }
 }
