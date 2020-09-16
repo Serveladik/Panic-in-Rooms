@@ -44,17 +44,23 @@ public class CharControl : MonoBehaviour
         
         if(rb.velocity.magnitude<=0f)
         {
-            playerAnim.runtimeAnimatorController = animatorOverride[0] as RuntimeAnimatorController;
+            playerAnim.SetBool("Idle",true);
+            playerAnim.SetBool("Walk",false);
+            playerAnim.SetBool("Run",false);
         }
         
         if(rb.velocity.magnitude>=0.5f && rb.velocity.magnitude<=2.5f)
         {
-            playerAnim.runtimeAnimatorController = animatorOverride[1] as RuntimeAnimatorController;
+            playerAnim.SetBool("Idle",false);
+            playerAnim.SetBool("Walk",true);
+            playerAnim.SetBool("Run",false);
         }
         
         if(rb.velocity.magnitude>2.5f)
         {
-            playerAnim.runtimeAnimatorController = animatorOverride[2] as RuntimeAnimatorController;
+            playerAnim.SetBool("Idle",false);
+            playerAnim.SetBool("Walk",false);
+            playerAnim.SetBool("Run",true);
         }
         
     }
